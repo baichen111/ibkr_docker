@@ -5,6 +5,7 @@ services:
       context: . # Path to your Dockerfile
       dockerfile: Dockerfile
     container_name: my_ibkr_pnl
+    network_mode: host
+    volumes:
+      - "/home/baichen/ibkr_docker_daily:/app/data"
     command: ["python", "runPnL.py"] # This is where you define the CMD
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
