@@ -1,0 +1,10 @@
+version: '3.8' # Or a suitable version for your Docker installation
+services:
+  ibkrpnl:
+    build:
+      context: . # Path to your Dockerfile
+      dockerfile: Dockerfile
+    container_name: my_ibkr_pnl
+    command: ["python", "runPnL.py"] # This is where you define the CMD
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
